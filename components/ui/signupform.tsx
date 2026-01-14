@@ -245,7 +245,7 @@ export function SignupForm({
                     <div className="text-center text-sm dark:text-gray-600 text-gray-400">
                       Já possui uma conta?{" "}
                       <a
-                        href="#"
+                        href="/login"
                         className="text-purple-600 hover:text-purple-700 underline underline-offset-4 transition-colors"
                       >
                         Iniciar Sessão
@@ -273,19 +273,19 @@ export function SignupForm({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                By clicking continue, you agree to our{" "}
+                Ao clicar em continuar, você concorda com os nossos{" "}
                 <a
                   href="#"
                   className="text-purple-600 hover:text-purple-700 underline underline-offset-4 transition-colors"
                 >
-                  Terms of Service
+                  Termos de Serviço
                 </a>{" "}
-                and{" "}
+                e{" "}
                 <a
                   href="#"
                   className="text-purple-600 hover:text-purple-700 underline underline-offset-4 transition-colors"
                 >
-                  Privacy Policy
+                  Políticas de Privacidade
                 </a>
                 .
               </motion.div>
