@@ -60,12 +60,22 @@ export default function Receitas() {
   ];
 
   return (
-    <div className="h-[100px] sm:h-[300px] w-full select-none">
+    <div className="h-[100px] sm:h-[300px] w-full select-none items-center">
       <ExpandableCards cards={cards} defaultExpanded={3} />
       <br></br>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
-          <AccordionTrigger>Spaghetti à Carbonara</AccordionTrigger>
+          {/* <Image
+          src="/favicon.ico"
+          alt="Logo"
+          width={50}
+          height={50}
+          className="rounded-full"
+        /> */}
+          <AccordionTrigger className="mx-2 text-2xl font-bold">
+            <Image src="/it.ico" alt="Logo" width={50} height={50} />
+            <p className="ml-4">Massa carbonara</p>
+          </AccordionTrigger>
           <AccordionContent>
             Coza o esparguete em água com sal até ficar al dente. Enquanto isso,
             salteie a pancetta ou o bacon numa frigideira até ficar crocante.
@@ -77,7 +87,10 @@ export default function Receitas() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
-          <AccordionTrigger>Guacamole</AccordionTrigger>
+          <AccordionTrigger className="mx-2 text-2xl font-bold">
+            <Image src="/mx.ico" alt="Logo" width={50} height={50} />
+            <p className="ml-4">Guacamole</p>
+          </AccordionTrigger>
           <AccordionContent>
             Descasque e amasse os abacates maduros numa taça. Junte a cebola
             picada, o tomate em cubos, os coentros frescos e o sumo de limão.
@@ -87,7 +100,10 @@ export default function Receitas() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
-          <AccordionTrigger>Panquecas Americanas</AccordionTrigger>
+          <AccordionTrigger className="mx-2 text-2xl font-bold">
+            <Image src="/usa.ico" alt="Logo" width={50} height={50} />
+            <p className="ml-4">Panquecas</p>
+          </AccordionTrigger>
           <AccordionContent>
             Misture a farinha, o açúcar, o fermento e uma pitada de sal numa
             taça. Noutra, bata os ovos com o leite e um pouco de manteiga
@@ -98,7 +114,10 @@ export default function Receitas() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-4">
-          <AccordionTrigger>Salada Grega</AccordionTrigger>
+          <AccordionTrigger className="mx-2 text-2xl font-bold">
+            <Image src="/gr.ico" alt="Logo" width={50} height={50} />
+            <p className="ml-4">Salada grega</p>
+          </AccordionTrigger>
           <AccordionContent>
             Corte os tomates, os pepinos e a cebola roxa em pedaços. Junte as
             azeitonas pretas e o queijo feta em cubos. Tempere com azeite, sal,
@@ -107,7 +126,10 @@ export default function Receitas() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-5">
-          <AccordionTrigger>Sushi Japonês</AccordionTrigger>
+          <AccordionTrigger className="mx-2 text-2xl font-bold">
+            <Image src="/jp.ico" alt="Logo" width={50} height={50} />
+            <p className="ml-4">Sushi</p>
+          </AccordionTrigger>
           <AccordionContent>
             Lave bem o arroz próprio para sushi e coza-o até ficar macio.
             Tempere com vinagre de arroz, açúcar e sal. Corte peixe fresco como
