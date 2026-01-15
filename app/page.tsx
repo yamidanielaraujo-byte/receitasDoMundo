@@ -13,7 +13,7 @@ const logos = [
       <Image
         src="/carbonara.jpg"
         alt="Microsoft"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover rounded-xl"
         width={100}
         height={100}
       />
@@ -25,7 +25,7 @@ const logos = [
       <Image
         src="/guacamole.jpg"
         alt="Guacamole"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover rounded-xl"
         width={100}
         height={100}
       />
@@ -37,7 +37,7 @@ const logos = [
       <Image
         src="/panquecas.png"
         alt="Panquecas"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover rounded-xl"
         width={100}
         height={100}
       />
@@ -49,19 +49,19 @@ const logos = [
       <Image
         src="/salada.png"
         alt="Salada"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover rounded-xl"
         width={100}
         height={100}
       />
     ),
-    label: "Salada",
+    label: "Salada Grega",
   },
   {
     icon: (
       <Image
         src="/sushi.jpg"
         alt="Sushi"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover rounded-xl"
         width={100}
         height={100}
       />
@@ -100,12 +100,14 @@ export default function Home() {
 
       <TextSpotlight
         textClassName="text-xl md:text-4xl font-semibold"
-        text="Sabores que viajam – descubra o mundo em cada prato!"
+        text="Cozinhar é sobre paixão, não sobre perfeição. - Gordon Ramsay"
         spotlightColor="255, 255, 255"
         spotlightArea={90}
         spotlightSize={100}
+        style={{ fontFamily: 'Dancing Script, cursive' }}
       />
-
+      <br></br>
+      <br></br>
       <LogoStepper
         logos={logos}
         direction="loop"
