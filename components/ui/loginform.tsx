@@ -42,7 +42,7 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   const introContent = (triggerExit: () => void) => (
     <div className="flex flex-col items-center justify-center ">
-      <div className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-black text-center">
+      <div className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-black text-center" style={{ fontFamily: 'Dancing Script, cursive' }}>
         Receitas do Mundo
       </div>
       <div className="text-lg sm:text-xl md:text-2xl text-white dark:text-black font-light tracking-wide opacity-80 max-w-[280px] sm:max-w-md text-center break-words">
@@ -80,7 +80,7 @@ export function LoginForm({
                 <div className="p-6 md:p-8 relative">
                   <div className="flex flex-col gap-6 relative z-10">
                     <div className="flex flex-col items-center text-center">
-                      <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 bg-clip-text text-transparent">
+                      <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 bg-clip-text text-transparent" style={{ fontFamily: 'Dancing Script, cursive' }}>
                         Receitas do Mundo
                       </h1>
                       <p className="text-muted-foreground text-balance mt-2">
