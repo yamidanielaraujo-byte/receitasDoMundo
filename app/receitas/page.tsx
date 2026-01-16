@@ -15,123 +15,191 @@ import {
 } from "@/components/ui/card-flip";
 import { Button } from "@/components/ui/button";
 import { Box, ShoppingCart, Star } from "lucide-react";
-import { useState } from "react";
 
 export default function Receitas() {
-  const [selectedSize, setSelectedSize] = useState("36");
-  const sizes = ["34", "35", "36", "37"];
   const products = [
     {
       id: 1,
       image: "/carbonara.jpg",
       title: "Massa Carbonara",
       price: "Itália",
-      description: "Futuristic leather sneakers",
+      description: "Massa italiana cremosa com queijo, ovo e pancetta",
       features: [
-        { title: "Upper", desc: "Premium leather, breathable" },
-        { title: "Sole", desc: "Carbon-infused, adaptive grip" },
-        { title: "Comfort", desc: "Memory foam heel" },
-        { title: "Package", desc: "Sneakers, dust bag, extra laces" },
-        { title: "Extras", desc: "Reflective trims for night visibility" },
+        {
+          title: "Preparar Ingredientes",
+          desc: "Coza a massa e corte a pancetta",
+        },
+        {
+          title: "Saltear Pancetta",
+          desc: "Frite até ficar dourada e crocante",
+        },
+        {
+          title: "Misturar Ovos e Queijo",
+          desc: "Bata as gemas com pecorino ou parmesão",
+        },
+        {
+          title: "Juntar à Massa Quente",
+          desc: "Envolva tudo fora do lume para não talhar",
+        },
+        {
+          title: "Finalizar e Servir",
+          desc: "Ajuste a pimenta e sirva de imediato",
+        },
       ],
-      rating: "4.5 (126)",
-      isBestSeller: true,
+      rating: "4.7 (892) Dificulade: Média",
     },
     {
       id: 2,
       image: "/guacamole.jpg", // Placeholder image
       title: "Guacamole",
       price: "México",
-      description: "High-tech running shoes",
+      description: "Dip mexicano fresco com abacate, lima e coentros",
       features: [
-        { title: "Upper", desc: "Mesh fabric, ventilated" },
-        { title: "Sole", desc: "Gel cushioning, shock absorption" },
-        { title: "Comfort", desc: "Orthotic support" },
-        { title: "Package", desc: "Shoes, cleaning kit, spare insoles" },
-        { title: "Extras", desc: "LED lights for safety" },
+        {
+          title: "Preparar Abacates",
+          desc: "Abre, retira o caroço e esmaga grosseiramente",
+        },
+        {
+          title: "Adicionar Aromas",
+          desc: "Junta cebola, tomate e coentros picados",
+        },
+        { title: "Temperar", desc: "Acrescenta sal, pimenta e sumo de lima" },
+        {
+          title: "Ajustar Textura",
+          desc: "Mistura até a consistência ficar cremosa",
+        },
+        {
+          title: "Servir Fresco",
+          desc: "Ideal com nachos ou como acompanhamento",
+        },
       ],
-      rating: "4.7 (89)",
-      isBestSeller: false,
+      rating: "4.8 (654) Muito Fácil",
     },
     {
       id: 3,
       image: "/panquecas.png", // Placeholder image
       title: "Panquecas",
       price: "Estados Unidos",
-      description: "Performance basketball sneakers",
+      description: "Panquecas fofas feitas com massa leve e amanteigada",
       features: [
-        { title: "Upper", desc: "Synthetic leather, durable" },
-        { title: "Sole", desc: "Rubber outsole, traction" },
-        { title: "Comfort", desc: "Air cushioning" },
-        { title: "Package", desc: "Sneakers, ankle support, extra laces" },
-        { title: "Extras", desc: "Glow-in-the-dark accents" },
+        { title: "Misturar Secos", desc: "Farinha, açúcar, fermento e sal" },
+        {
+          title: "Adicionar Líquidos",
+          desc: "Leite, ovo e manteiga derretida",
+        },
+        {
+          title: "Descansar a Massa",
+          desc: "Deixa repousar para ficar mais fofa",
+        },
+        {
+          title: "Cozinhar na Frigideira",
+          desc: "Vira quando aparecerem bolhas",
+        },
+        {
+          title: "Servir com Toppings",
+          desc: "Mel, fruta, manteiga ou o que preferires",
+        },
       ],
-      rating: "4.6 (154)",
-      isBestSeller: true,
+      rating: "4.9 (1201) Dificuldade: Fácil",
     },
     {
       id: 4,
       image: "/salada.png", // Placeholder image
       title: "Salada Grega",
       price: "Grécia",
-      description: "Casual lifestyle sneakers",
+      description: "Salada mediterrânica com tomate, pepino, azeitonas e feta",
       features: [
-        { title: "Upper", desc: "Canvas, lightweight" },
-        { title: "Sole", desc: "EVA foam, flexible" },
-        { title: "Comfort", desc: "Padded collar" },
-        { title: "Package", desc: "Shoes, drawstring bag, care instructions" },
-        { title: "Extras", desc: "Customizable color panels" },
+        {
+          title: "Cortar Legumes",
+          desc: "Tomate, pepino, cebola roxa e pimento",
+        },
+        { title: "Adicionar Azeitonas", desc: "De preferência kalamata" },
+        { title: "Juntar Queijo Feta", desc: "Em cubos ou lascas generosas" },
+        {
+          title: "Temperar",
+          desc: "Azeite, oregãos, sal e um pouco de vinagre",
+        },
+        {
+          title: "Misturar e Servir",
+          desc: "Não mexer demasiado para não desfazer o feta",
+        },
       ],
-      rating: "4.4 (67)",
-      isBestSeller: false,
+      rating: "4.7 (378) Dificuldade: Muito Fácil",
     },
     {
       id: 5,
       image: "/sushi.jpg", // Placeholder image
       title: "Sushi",
       price: "Japão",
-      description: "Premium hiking boots",
+      description: "Arroz temperado enrolado com peixe fresco e vegetais",
       features: [
-        { title: "Upper", desc: "Waterproof leather, reinforced" },
-        { title: "Sole", desc: "Vibram tread, waterproof" },
-        { title: "Comfort", desc: "Insulated lining" },
-        { title: "Package", desc: "Boots, gaiters, repair kit" },
-        { title: "Extras", desc: "Integrated GPS tracker" },
+        {
+          title: "Preparar Arroz",
+          desc: "Cozer, temperar com vinagre e arrefecer",
+        },
+        {
+          title: "Cortar Ingredientes",
+          desc: "Peixe, pepino, abacate, tudo em tiras",
+        },
+        {
+          title: "Montar o Rolo",
+          desc: "Nori por baixo, arroz por cima e recheio ao centro",
+        },
+        {
+          title: "Enrolar com Cuidado",
+          desc: "Usa um tapete de bambu para apertar",
+        },
+        { title: "Cortar e Servir", desc: "Fatias limpas com faca molhada" },
       ],
-      rating: "4.8 (203)",
-      isBestSeller: true,
+      rating: "4.8 (203) Dificuldade: Difícil",
     },
     {
       id: 6,
       image: "/pastel.png", // Placeholder image
       title: "Pastel de Nata",
       price: "Portugal",
-      description: "Affordable everyday sneakers",
+      description: "Doce português com massa folhada crocante e creme suave",
       features: [
-        { title: "Upper", desc: "Knit fabric, seamless" },
-        { title: "Sole", desc: "Boost technology, energy return" },
-        { title: "Comfort", desc: "Contoured fit" },
-        { title: "Package", desc: "Sneakers, shoe box, warranty card" },
-        { title: "Extras", desc: "Eco-friendly materials" },
+        { title: "Preparar Creme", desc: "Leite, açúcar, gemas e baunilha" },
+        {
+          title: "Espessar no Lume",
+          desc: "Cozinha até engrossar ligeiramente",
+        },
+        { title: "Forrar as Formas", desc: "Com massa folhada bem fina" },
+        {
+          title: "Encher e Assar",
+          desc: "Forno muito quente para caramelizar",
+        },
+        {
+          title: "Servir Quente",
+          desc: "Polvilhado com canela ou açúcar em pó",
+        },
       ],
-      rating: "4.3 (112)",
-      isBestSeller: false,
+      rating: "4.9 (1550) Dificuldade: Difícil",
     },
     {
       id: 7,
       image: "/poke.png", // Placeholder image
       title: "Poke",
       price: "Havaí",
-      description: "Affordable everyday sneakers",
+      description: "Tigela havaiana com arroz, peixe cru e toppings frescos",
       features: [
-        { title: "Upper", desc: "Knit fabric, seamless" },
-        { title: "Sole", desc: "Boost technology, energy return" },
-        { title: "Comfort", desc: "Contoured fit" },
-        { title: "Package", desc: "Sneakers, shoe box, warranty card" },
-        { title: "Extras", desc: "Eco-friendly materials" },
+        { title: "Preparar Base", desc: "Arroz de sushi ou arroz integral" },
+        { title: "Cortar o Peixe", desc: "Atum ou salmão em cubos" },
+        {
+          title: "Temperar o Peixe",
+          desc: "Molho de soja, sésamo, lima e gengibre",
+        },
+        {
+          title: "Adicionar Toppings",
+          desc: "Abacate, edamame, pepino, algas",
+        },
+        {
+          title: "Montar a Tigela",
+          desc: "Organiza todos os ingredientes e serve frio",
+        },
       ],
-      rating: "4.3 (112)",
-      isBestSeller: false,
+      rating: "4.8 (214) Dificuldade: Fácil",
     },
     {
       id: 8,
@@ -140,14 +208,25 @@ export default function Receitas() {
       price: "Reino Unido",
       description: "Affordable everyday sneakers",
       features: [
-        { title: "Upper", desc: "Knit fabric, seamless" },
-        { title: "Sole", desc: "Boost technology, energy return" },
-        { title: "Comfort", desc: "Contoured fit" },
-        { title: "Package", desc: "Sneakers, shoe box, warranty card" },
-        { title: "Extras", desc: "Eco-friendly materials" },
+        {
+          title: "Preparar as Batatas",
+          desc: "Cortar e pré-cozer ligeiramente",
+        },
+        {
+          title: "Fazer a Massa do Peixe",
+          desc: "Cerveja, farinha e temperos",
+        },
+        { title: "Fritar o Peixe", desc: "Até ficar dourado e estaladiço" },
+        {
+          title: "Fritar as Batatas",
+          desc: "Segunda fritura para ficarem crocantes",
+        },
+        {
+          title: "Servir com Molho",
+          desc: "Tártaro, limão ou vinagre maltado",
+        },
       ],
-      rating: "4.3 (112)",
-      isBestSeller: false,
+      rating: "4.6 (447) Dificuldade: Média",
     },
   ];
 
@@ -249,14 +328,24 @@ export default function Receitas() {
       <ExpandableCards cards={cards} defaultExpanded={3} />
 
       <br></br>
-      <hr
+
+      <div
         style={{
           border: "10px solid #1F2937",
-          height: "10px",
-          backgroundColor: "#333",
+          height: "50px",
+          backgroundColor: "#1F2937",
           width: "100%",
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "white",
         }}
-      ></hr>
+      >
+        <h2 style={{ fontSize: "30px", fontFamily: "Dancing Script, cursive" }}>
+          Receitas
+        </h2>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 p-4 ml-5">
         {products.map((product) => (
@@ -282,19 +371,7 @@ export default function Receitas() {
                 <p className="text-2xl p-1 font-bold">{product.price}</p>
               </CardFlipHeader>
               <CardFlipContent className="flex-1 overflow-auto">
-                <div className="flex items-center space-x-2 px-4">
-                  {sizes.map((size) => (
-                    <Button
-                      key={size}
-                      size="sm"
-                      variant={selectedSize === size ? "default" : "outline"}
-                      className="w-8 h-8 p-0 flex items-center justify-center relative"
-                      onClick={() => setSelectedSize(size)}
-                    >
-                      {size}
-                    </Button>
-                  ))}
-                </div>
+                <div className="flex items-center space-x-2 px-4"></div>
               </CardFlipContent>
               <CardFlipFooter className="flex gap-4 items-stretch">
                 <button className="flex-1 bg-primary py-1 text-primary-foreground px-4 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center">
@@ -325,8 +402,11 @@ export default function Receitas() {
                 ))}
               </CardFlipContent>
               <CardFlipFooter className="border-t">
-                <p className="text-xs mt-4">
-                  Free express shipping over $2,999
+                <p className="text-small mt-4 text-center">
+                  &quot;Cozinhar é sobre paixão, não sobre perfeição&quot;
+                  <span className="block mt-1 text-center">
+                    — Gordon Ramsay
+                  </span>
                 </p>
               </CardFlipFooter>
             </CardFlipBack>
