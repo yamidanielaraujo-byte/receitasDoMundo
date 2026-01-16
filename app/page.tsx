@@ -68,6 +68,43 @@ const logos = [
     ),
     label: "Sushi",
   },
+  {
+    icon: (
+      <Image
+        src="/pastel.png"
+        alt="Pastel de Nata"
+        className="w-full h-full object-cover rounded-xl"
+        width={100}
+        height={100}
+      />
+    ),
+    label: "Pastel de Nata",
+  },
+  {
+    icon: (
+      <Image
+        src="/poke.png"
+        alt="Poke"
+        className="w-full h-full object-cover rounded-xl"
+        width={100}
+        height={100}
+      />
+    ),
+    label: "Poke",
+  },
+  {
+    icon: (
+      <Image
+        src="/fish.png"
+        alt="Fish and Chips"
+        className="w-full h-full object-cover rounded-xl"
+        width={100}
+        height={100}
+      />
+    ),
+    label: "Fish and Chips",
+  },
+
 ];
 
 export default function Home() {
@@ -100,7 +137,7 @@ export default function Home() {
 
       <TextSpotlight
         textClassName="text-xl md:text-4xl font-semibold"
-        text="Cozinhar é sobre paixão, não sobre perfeição. - Gordon Ramsay"
+        text="&quot;Cozinhar é sobre paixão, não sobre perfeição&quot; - Gordon Ramsay"
         spotlightColor="255, 255, 255"
         spotlightArea={90}
         spotlightSize={100}
