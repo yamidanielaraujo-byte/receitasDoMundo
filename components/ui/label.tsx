@@ -36,29 +36,9 @@ const variants: Record<
 };
 
 const MotionLabel = React.forwardRef<HTMLLabelElement, LabelProps>(
-  (
-    {
-      direction = "left",
-      disableAnimation,
-      className,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ direction = "left", disableAnimation, className, children, ...props }, ref) => {
     const localRef = React.useRef<HTMLLabelElement>(null);
     const isInView = useInView(localRef, { once: false, margin: "-50px" });
-
-    const {
-      onDrag,
-      onDragStart,
-      onDragEnd,
-      onDragOver,
-      onDragLeave,
-      onDrop,
-      draggable,
-      ...motionSafeProps
-    } = props;
 
     const baseClasses = cn(
       "flex items-center gap-2 text-sm leading-none font-medium select-none",
@@ -89,13 +69,14 @@ const MotionLabel = React.forwardRef<HTMLLabelElement, LabelProps>(
             : variants[direction].initial
         }
         transition={{ duration: 0.4, ease: "easeOut" }}
-        {...motionSafeProps}
+        {...props}
       >
         {children}
       </motion.label>
     );
   }
 );
+
 
 
 MotionLabel.displayName = "MotionLabel";
