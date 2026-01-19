@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ExpandableCard {
@@ -21,16 +21,21 @@ export default function ExpandableCards({
 }: ExpandableCardsProps) {
   const [expandedId, setExpandedId] = useState<number>(defaultExpanded);
 
-  const getCardVariants = () => ({
-    expanded: { flex: 3, transition: { duration: 0.5, ease: "easeInOut" } },
-    collapsed: { flex: 1, transition: { duration: 0.5, ease: "easeInOut" } },
-  });
-
   return (
     <div className={cn("flex gap-3 sm:gap-4 w-full h-full", className)}>
       {cards.map((card) => {
         const isExpanded = expandedId === card.id;
-
+        const getCardVariants = () : Variants => ({
+          expanded: {
+            flex: 3,
+            transition: { duration: 0.5, ease: "easeInOut" },
+          },
+          collapsed: {
+            flex: 1,
+            transition: { duration: 0.5, ease: "easeInOut" },
+          },
+        });
+        
         return (
           <motion.div
             key={card.id}
@@ -40,9 +45,7 @@ export default function ExpandableCards({
             animate={isExpanded ? "expanded" : "collapsed"}
             onMouseEnter={() => setExpandedId(card.id)}
           >
-            <div className="absolute inset-0">
-              {card.content}
-            </div>
+            <div className="absolute inset-0">{card.content}</div>
 
             {!isExpanded && (
               <motion.div
@@ -54,7 +57,6 @@ export default function ExpandableCards({
           </motion.div>
         );
       })}
-      
     </div>
   );
 }
