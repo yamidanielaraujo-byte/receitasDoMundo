@@ -104,7 +104,6 @@ const logos = [
     ),
     label: "Fish and Chips",
   },
-
 ];
 
 export default function Home() {
@@ -137,11 +136,11 @@ export default function Home() {
 
       <TextSpotlight
         textClassName="text-xl md:text-4xl font-semibold"
-        text="&quot;Cozinhar é sobre paixão, não sobre perfeição&quot; - Gordon Ramsay"
+        text='"Cozinhar é sobre paixão, não sobre perfeição" - Gordon Ramsay'
         spotlightColor="255, 255, 255"
         spotlightArea={90}
         spotlightSize={100}
-        style={{ fontFamily: 'Dancing Script, cursive' }}
+        style={{ fontFamily: "Dancing Script, cursive" }}
       />
       <br></br>
       <br></br>

@@ -42,9 +42,9 @@ export default function RootLayout({
         {children}
         <br></br><br></br>
 
-        <footer className="bg-gray-800 text-white p-4 text-center">
+        {/* <footer className="bg-gray-800 text-white p-4 text-center">
           © 2026 Receitas do Mundo. Todos os direitos reservados.
-        </footer>
+        </footer> */}
       </body>
 
       

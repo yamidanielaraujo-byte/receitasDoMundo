@@ -90,8 +90,8 @@ export const LogoStepper: React.FC<LogoStepperProps> = ({
                 }}
                 className="flex flex-col items-center flex-shrink-0 min-h-[200px] w-[80px]"
               >
-                <motion.div className="rounded-xl border border-border bg-card p-4 hover:border-primary transition-colors">
-                  <div className="w-12 h-12 flex items-center justify-center">
+                <motion.div className="rounded-xl border border-border bg-card hover:border-primary transition-colors">
+                  <div className="w-25 h-25 flex items-center justify-center">
                     {logo.icon}
                   </div>
                 </motion.div>
