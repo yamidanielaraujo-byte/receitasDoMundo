@@ -2,14 +2,18 @@
 
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+type Direction = "left" | "right" | "top" | "bottom";
 
-interface LabelProps extends React.ComponentProps<typeof LabelPrimitive.Root> {
-  direction?: "left" | "right" | "top" | "bottom";
+interface LabelProps
+  extends Omit<HTMLMotionProps<"label">, "children"> {
+  direction?: Direction;
   disableAnimation?: boolean;
+  children?: React.ReactNode;
 }
+
 
 function mergeRefs<T>(
   ...refs: Array<React.Ref<T> | undefined>
@@ -23,61 +27,68 @@ function mergeRefs<T>(
   };
 }
 
-function omitMotionConflicts(props: LabelProps & { children?: React.ReactNode }) {
-  const {
-    onDrag, onDragStart, onDragEnd, onDragOver, onDragLeave, onDrop, onAnimationStart, draggable,
-    // add any more as needed
-    ...rest
-  } = props;
-  return rest;
-}
+const variants: Record<
+  Direction,
+  { initial: { x?: number; y?: number }; animate: { x?: number; y?: number } }
+> = {
+  left: { initial: { x: -20 }, animate: { x: 0 } },
+  right: { initial: { x: 20 }, animate: { x: 0 } },
+  top: { initial: { y: -20 }, animate: { y: 0 } },
+  bottom: { initial: { y: 20 }, animate: { y: 0 } },
+};
 
-const MotionLabel = React.forwardRef<
-  HTMLLabelElement,
-  LabelProps & { children?: React.ReactNode }
->(({ direction = "left", disableAnimation, className, ...props }, ref) => {
-  const localRef = React.useRef<HTMLLabelElement>(null);
-  const isInView = useInView(localRef, { once: false, margin: "-50px" });
-  const safeProps = omitMotionConflicts(props);
+const MotionLabel = React.forwardRef<HTMLLabelElement, LabelProps>(
+  (
+    {
+      direction = "left",
+      disableAnimation,
+      className,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const localRef = React.useRef<HTMLLabelElement>(null);
+    const isInView = useInView(localRef, { once: false, margin: "-50px" });
 
+    const baseClasses = cn(
+      "flex items-center gap-2 text-sm leading-none font-medium select-none",
+      "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-70",
+      "peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+      className
+    );
 
-  const variants = {
-    left: { initial: { x: -20 }, animate: { x: 0 } },
-    right: { initial: { x: 20 }, animate: { x: 0 } },
-    top: { initial: { y: -20 }, animate: { y: 0 } },
-    bottom: { initial: { y: 20 }, animate: { y: 0 } },
-  };
+    // 🔹 Sem animação → Radix puro
+    if (disableAnimation) {
+      return (
+        <LabelPrimitive.Root
+          ref={mergeRefs(ref, localRef)}
+          className={baseClasses}
+        >
+          {children}
+        </LabelPrimitive.Root>
+      );
+    }
 
-  const baseClasses = cn(
-    "flex items-center gap-2 text-sm leading-none font-medium select-none user-select-none",
-    "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-70",
-    "peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
-    className
-  );
-
-  if (disableAnimation) {
+    // 🔹 Com animação → Framer Motion
     return (
-      <LabelPrimitive.Root
+      <motion.label
         ref={mergeRefs(ref, localRef)}
         className={baseClasses}
+        initial={variants[direction].initial}
+        animate={
+          isInView
+            ? variants[direction].animate
+            : variants[direction].initial
+        }
+        transition={{ duration: 0.4, ease: "easeOut" }}
         {...props}
-      />
+      >
+        {children}
+      </motion.label>
     );
   }
-
-  return (
-    <motion.label
-      ref={mergeRefs(ref, localRef)}
-      initial={variants[direction].initial}
-      animate={
-        isInView ? variants[direction].animate : variants[direction].initial
-      }
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className={baseClasses}
-      {...safeProps}
-    />
-  );
-});
+);
 
 MotionLabel.displayName = "MotionLabel";
 
