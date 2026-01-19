@@ -151,6 +151,7 @@ export default function Home() {
         animationDuration={0.6}
         visibleCount={5}
       />
+      <h1>Olá mundo</h1>
     </div>
   );
 }
