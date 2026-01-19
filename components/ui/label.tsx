@@ -7,13 +7,11 @@ import { cn } from "@/lib/utils";
 
 type Direction = "left" | "right" | "top" | "bottom";
 
-interface LabelProps
-  extends Omit<HTMLMotionProps<"label">, "children"> {
+interface LabelProps extends Omit<HTMLMotionProps<"label">, "children"> {
   direction?: Direction;
   disableAnimation?: boolean;
   children?: React.ReactNode;
 }
-
 
 function mergeRefs<T>(
   ...refs: Array<React.Ref<T> | undefined>
@@ -51,6 +49,17 @@ const MotionLabel = React.forwardRef<HTMLLabelElement, LabelProps>(
     const localRef = React.useRef<HTMLLabelElement>(null);
     const isInView = useInView(localRef, { once: false, margin: "-50px" });
 
+    const {
+      onDrag,
+      onDragStart,
+      onDragEnd,
+      onDragOver,
+      onDragLeave,
+      onDrop,
+      draggable,
+      ...motionSafeProps
+    } = props;
+
     const baseClasses = cn(
       "flex items-center gap-2 text-sm leading-none font-medium select-none",
       "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-70",
@@ -58,7 +67,6 @@ const MotionLabel = React.forwardRef<HTMLLabelElement, LabelProps>(
       className
     );
 
-    // 🔹 Sem animação → Radix puro
     if (disableAnimation) {
       return (
         <LabelPrimitive.Root
@@ -70,7 +78,6 @@ const MotionLabel = React.forwardRef<HTMLLabelElement, LabelProps>(
       );
     }
 
-    // 🔹 Com animação → Framer Motion
     return (
       <motion.label
         ref={mergeRefs(ref, localRef)}
@@ -82,13 +89,14 @@ const MotionLabel = React.forwardRef<HTMLLabelElement, LabelProps>(
             : variants[direction].initial
         }
         transition={{ duration: 0.4, ease: "easeOut" }}
-        {...props}
+        {...motionSafeProps}
       >
         {children}
       </motion.label>
     );
   }
 );
+
 
 MotionLabel.displayName = "MotionLabel";
 
