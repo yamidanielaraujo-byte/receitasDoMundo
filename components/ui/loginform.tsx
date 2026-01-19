@@ -3,7 +3,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+// import { Label } from "@/components/ui/label"
 import Transition from "@/components/ui/transition"
 import { motion } from "framer-motion"
 
@@ -90,7 +90,8 @@ export function LoginForm({
 
                     <div className="grid gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="email" className="text-sm dark:text-black text-white font-medium">Email</Label>
+                        <p className="text-sm dark:text-black text-white font-medium">Email</p>
+                        {/* <Label htmlFor="email" className="text-sm dark:text-black text-white font-medium">Email</Label> */}
                         <Input
                           id="email"
                           type="email"
@@ -101,7 +102,8 @@ export function LoginForm({
                       </div>
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <Label htmlFor="password" className="text-sm dark:text-black text-white  font-medium">Password</Label>
+                          <p className="text-sm dark:text-black text-white font-medium">Password</p>
+                          {/* <Label htmlFor="password" className="text-sm dark:text-black text-white  font-medium">Password</Label> */}
                           <a
                             href="#"
                             className="text-sm text-purple-600 hover:text-purple-700 underline-offset-2 hover:underline transition-colors"

@@ -3,7 +3,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+// import { Label } from "@/components/ui/label";
 import Transition from "@/components/ui/transition";
 import { motion } from "framer-motion";
 
@@ -92,12 +92,13 @@ export function SignupForm({
 
                     <div className="grid gap-4">
                       <div className="space-y-2">
-                        <Label
+                        <p className="text-sm dark:text-black text-white font-medium">Email</p>
+                        {/* <Label
                           htmlFor="email"
                           className="text-sm dark:text-black text-white font-medium"
                         >
                           Email
-                        </Label>
+                        </Label> */}
                         <Input
                           id="email"
                           type="email"
@@ -108,9 +109,10 @@ export function SignupForm({
                       </div>
                       <div className="space-y-4">
                         <div className="space-y-1">
-                          <Label htmlFor="password" className="text-sm dark:text-black text-white font-medium">
+                          <p className="text-sm dark:text-black text-white font-medium">Password</p>
+                          {/* <Label htmlFor="password" className="text-sm dark:text-black text-white font-medium">
                             Password
-                          </Label>
+                          </Label> */}
                           <Input
                             id="password"
                             type="password"
@@ -123,9 +125,10 @@ export function SignupForm({
                         </div>
 
                         <div className="space-y-1">
-                          <Label htmlFor="confirmPassword" className="text-sm dark:text-black text-white font-medium">
+                          <p className="text-sm dark:text-black text-white font-medium">Confirmar a Password</p>
+                          {/* <Label htmlFor="confirmPassword" className="text-sm dark:text-black text-white font-medium">
                             Confirmar a Password
-                          </Label>
+                          </Label> */}
                           <Input
                             id="confirmPassword"
                             type="password"
