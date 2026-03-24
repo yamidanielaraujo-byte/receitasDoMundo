@@ -9,7 +9,7 @@ O **Receitas do Mundo** é uma plataforma onde podes descobrir, aprender e exper
 - 🌎 Navegação por países
 - 🍝 Lista de receitas com imagens
 - 📖 Passo a passo de preparação
-- ⭐ Sistema de favoritos (opcional)
+- ⭐ Sistema de favoritos
 - 🔍 Pesquisa de receitas
 
 ## 🛠️ Tecnologias utilizadas
